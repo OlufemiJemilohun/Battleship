@@ -1,4 +1,4 @@
-#
+"""Battship game in Python - Codeacademy"""
 
 #import randint function from the the random module
 from random import randint
