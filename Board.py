@@ -18,3 +18,11 @@ def random_row(board):
 	return randint(0, len(board) - 1)
 def random_col(board):
 	return randint(0, len(board) - 1)
+
+#coordinates for the ship
+ship_row = random_row(board)
+ship_col = random_col(board)
+
+#use the raw_input function to allow user to guess the row/column of the battleship
+guess_row = int(raw_input("Guess Row: "))
+guess_col = int(raw_input("Guess Column: "))
