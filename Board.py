@@ -23,6 +23,9 @@ def random_col(board):
 ship_row = random_row(board)
 ship_col = random_col(board)
 
+#debugging - print location of the ship. Comment out later
+print "Row: " + str(ship_row) + ", " + "Column: " + str(ship_col)
+
 #use the raw_input function to allow player to guess the row/column of the battleship
 guess_row = int(raw_input("Guess Row: "))
 guess_col = int(raw_input("Guess Column: "))
@@ -32,9 +35,8 @@ if guess_row == ship_row and guess_col == ship_col:
 	print "Congratulations! You sank my battleship!"
 else:
 	board[guess_row][guess_col] = "X"
+	#debugging - print location of missed guess
+	print_board(board) 
 	"You missed my battleship!"
 
-#Debugging - print location of the ship. Comment out later
-print ship_row
-print ship_col
-print_board(board) 
+
