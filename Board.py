@@ -1,42 +1,54 @@
-"""Battship game in Python - Codeacademy"""
+rom random import randint
 
-#import randint function from the the random module
-from random import randint
-
-#create a 5x5 board of "O"
 board = []
-for loop in range (0,4):
-	board.append(["O"] * 5)
 
-#simple function to print the board
+for x in range(5):
+    board.append(["O"] * 5)
+
 def print_board(board):
-	for i in board:
-		print " ".join(board[i]) """us the join function to combine items in string"""
+    for row in board:
+        print " ".join(row)
 
-#hide our battleship in a random location on the board.
+print "Let's play Battleship!"
+
 def random_row(board):
-	return randint(0, len(board) - 1)
-def random_col(board):
-	return randint(0, len(board) - 1)
+    return randint(0, len(board) - 1)
 
-#coordinates for the ship
+def random_col(board):
+    return randint(0, len(board[0]) - 1)
+
 ship_row = random_row(board)
 ship_col = random_col(board)
+#debug - print ship location
+'''print "Ship Location - Row: " + str(ship_row) + ", Column: " + str(ship_col)'''
 
-#debugging - print location of the ship. Comment out later
-print "Row: " + str(ship_row) + ", " + "Column: " + str(ship_col)
+turn = 0
+for turn in range(0, 4):
+    print "Turn " + str(turn + 1)
+    '''print turn + 1'''1
+    
+    # Everything from here on should go in your for loop!
+    # Be sure to indent four spaces!
+    guess_row = int(raw_input("Guess Row:"))
+    guess_col = int(raw_input("Guess Col:"))
 
-#use the raw_input function to allow player to guess the row/column of the battleship
-guess_row = int(raw_input("Guess Row: "))
-guess_col = int(raw_input("Guess Column: "))
-
-#check to see if the player guessed right.
-if guess_row == ship_row and guess_col == ship_col:
-	print "Congratulations! You sank my battleship!"
-else:
-	board[guess_row][guess_col] = "X"
-	#debugging - print location of missed guess
-	print_board(board) 
-	"You missed my battleship!"
-
-
+    if guess_row == ship_row and guess_col == ship_col:
+        print "Congratulations! You sunk my battleship!"
+        break
+    else:
+        if (guess_row < 0 or guess_row > 4) or (guess_col <  0 or guess_col > 4):
+            print "Oops, that's not even in the ocean."
+        elif(board[guess_row][guess_col] == "X"):
+            print "You guessed that one already."
+        else:
+            print "You missed my battleship!"
+            board[guess_row][guess_col] = "X"
+        # Print (turn + 1) here!
+        
+        #game over
+        if turn not in range(4):
+            print "Game Over"
+    print turn
+    turn += 1
+    
+print_board(board)
