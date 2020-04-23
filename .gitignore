@@ -1,5 +1,5 @@
 # Kate
-.kate-swp
+*.kate-swp
 
 # Python
 # https://github.com/github/gitignore/blob/master/Python.gitignore
