@@ -19,7 +19,7 @@ SHIP_SIZES = {
 }
 
 @dataclass
-class Ship:
+class Ships:
   '''Create the 8x8 boards for one player
   '''
   carrier: np.array = None
@@ -37,5 +37,5 @@ class Ship:
       ))
   
 if __name__ == '__main__':
-  S = Ship()
+  S = Ships()
   print(asdict(S))

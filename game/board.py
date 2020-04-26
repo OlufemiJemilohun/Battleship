@@ -20,8 +20,7 @@ class Board:
     '''Create current/previous board to track moves
     '''
     for board in vars(self):
-      vars(self)[board] = np.zeros(shape=(8,8))
-
+      vars(self)[board] = np.zeros(shape=(8, 8))
   
 if __name__ == '__main__':
   B = Board()
