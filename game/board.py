@@ -19,8 +19,9 @@ class Board:
   def __post_init__(self):
     '''Create current/previous board to track moves
     '''
-    self.current = np.zeros(shape=(8,8))
-    self.previous = np.zeros(shape=(8,8))
+    for board in vars(self):
+      vars(self)[board] = np.zeros(shape=(8,8))
+
   
 if __name__ == '__main__':
   B = Board()
